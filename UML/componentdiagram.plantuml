@@ -1,0 +1,39 @@
+	
+@startuml
+
+package "NodeJs Server" {
+  HTTP1 - [Server App]
+  [Another Component]
+}
+
+cloud "Superbase" {
+  HTTP2 - [User Database]
+  [User Database] --> HTTP1
+}
+
+cloud "mongo atlas" {
+  HTTP3 - [Mongo collection for sessions]
+  [Mongo collections] --> HTTP1
+}
+
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+
+
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
